@@ -1,0 +1,9 @@
+{
+  "name": "travel-port1",
+  "version": "1.0.0",
+  "description": "Travel aid App by Victor Godwin",
+  "main": "index.js",
+  "repository": "https://github.com/cstudio7/travel-port1.git",
+  "author": "Victor Godwin <conquerorsword36@yahoo.com>",
+  "license": "MIT"
+}
