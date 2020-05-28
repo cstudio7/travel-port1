@@ -19,12 +19,12 @@ module.exports = {
         typeId: {
           type: Sequelize.INTEGER,
           references: {
-            model: 'accomodationtypes',
+            model: 'accomodation',
             key: 'id'
           },
           onDelete: 'CASCADE',
           onUpdate: 'CASCADE'
-        }, 
+        },
         price: {
           type: Sequelize.FLOAT
         },
@@ -48,4 +48,4 @@ module.exports = {
       return queryInterface.dropTable('rooms');
     }
   };
-  
+

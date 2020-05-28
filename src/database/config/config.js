@@ -1,19 +1,17 @@
-require('dotenv').config();
+require('@babel/register');
+const dotenv = require('dotenv');
 
-module.exports.development = {
-  url: process.env.DATABASE_URL_DEV,
-  dialect: 'postgres',
-  logging: false
-};
+dotenv.config();
 
-module.exports.testing = {
-  url: process.env.DATABASE_URL_TEST,
-  dialect: 'postgres',
-  logging: false
-};
-
-module.exports.production = {
-  url: process.env.DATABASE_URL,
-  dialect: 'postgresql',
-  logging: false
+module.exports = {
+  development: {
+    use_env_variable: 'DATABASE_URL_DEV'
+  },
+  production: {
+    use_env_variable: 'DATABASE_URL'
+  },
+  staging: {
+    use_env_variable: 'DATABASE_URL'
+  },
+  SECRETKEY: process.env.SECRET
 };

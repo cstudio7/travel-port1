@@ -10,6 +10,7 @@ import GenerateToken from '../helpers/token.helper';
 import profileHelper from '../helpers/profile.helper';
 import Paginate from '../helpers/paginate.helper';
 import userManagement from '../services/user-management.services';
+import db from '../database/models';
 
 /**
  * Class for users related operations such Sign UP, Sign In and others
@@ -31,6 +32,7 @@ class userController {
         country,
         birthdate
       } = req.body;
+
       const password = EncryptPassword(req.body.password);
       const token = GenerateToken({ email, firstName, isVerified: false });
       const NewUser = {
@@ -44,7 +46,7 @@ class userController {
         isVerified: false,
         token
       };
-      const createdUser = await UserServices.CreateUser(NewUser);
+      const createdUser = await db.user.create(NewUser);
       userManagement.CreateUserManagement({ userId: createdUser.id });
       const data = {
         token,
